@@ -1,0 +1,90 @@
+
+
+/* 小見出しスタイル */
+.banner {
+    padding: 0.2rem 0.6rem;
+    border-left: 3px solid black;
+}
+/* フッター用 */
+.footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+
+/* プログレスバー用 */
+.root {
+    /* 左右非対称を直すために調整 */
+    width: 97%;
+    margin-right: auto;
+}
+
+.layout {
+    width: 100%;
+    z-index: 1;
+}
+
+.progressbar {
+    /* ・をなくして、デフォルトのパディングも消す */
+    list-style: none;
+    padding-left: 0;
+}
+
+.progressbar li {
+    float: left;
+    /* 6分割する */
+    width: 16.667%;
+    position: relative;
+    text-align: center;
+    font-size: 35px;
+}
+
+.progressbar li::before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    border: 2px solid #bebebe;
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+    line-height: 18px;
+    background: white;
+    color: #bebebe;
+    text-align: center;
+    font-weight: bold;
+}
+
+.progressbar li::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: #d4d4d4;
+    top: 15px;
+    left: -1%;
+    z-index: -1;
+}
+
+.progressbar li.active::after {
+    background: #3aac5d;
+}
+
+.progressbar li.active::before {
+    content: url(../images/check-lg.svg);
+    border-color: #3aac5d;
+    background: #3aac5d;
+}
+
+/* 最初の項目だけは挙動を変更する */
+.progressbar li:first-child::after {
+    width: 50%;
+    left: 50%;
+    background: #3aac5d;
+}
+
+.progressbar li:first-child:before {
+    border-color: #00620d;
+    background: #00620d;
+    border-radius: 10%;
+}

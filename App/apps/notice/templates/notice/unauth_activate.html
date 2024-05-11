@@ -1,0 +1,11 @@
+{% extends "notice/base.html" %}
+{% block title %}送迎バス運行状況{% endblock %}
+{% block content %}
+<div class="pt-3 text-center">
+    <h1>送迎バス</h1>
+    <p class="fs-5 text-muted">運行状況:
+        <span class="text-dark  display-6">運行中</span>
+    </p>
+    <p class="fs-5">※<a href="{{url_for('notice.auth')}}">認証</a>が行われていないユーザーのため、バスの位置情報と到着地予想時間は表示されません。</p>
+</div>
+{% endblock %}

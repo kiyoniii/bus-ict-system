@@ -1,0 +1,124 @@
+{% extends "notice/base.html" %}
+{% block title %}送迎バス運行状況{% endblock %}
+{% block content %}
+
+<div class="px-3 fs-5">
+    <span class="text-muted">ユーザ名:
+        <span class="">{{username}}</span>
+    </span>
+</div>
+<div class="text-center">
+    <h1>送迎バス</h1>
+    <p class="fs-5 text-muted pe-5">園児の状態:
+        <span class="text-primary display-6">乗車中</span>
+    </p>
+</div>
+{% if loc==0 %}
+<div class="root">
+    <div class="layout">
+        <ul class="progressbar">
+            <li>S</li>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+            <li>E</li>
+        </ul>
+    </div>
+    <p class="h4 mt-4 ps-5 text-center">{{at}} 園を出発しました</p>
+    <p class="h4 ps-5 text-center">Aに向かっています</p>
+    <p class="h4 ps-5 text-center">Aまでの到着予想時間:{{est_at}}(前回所要時間:{{est_m}}分{{est_s}}秒)</p>
+</div>
+
+{% elif loc==1 %}
+<div class="root">
+    <div class="layout">
+        <ul class="progressbar">
+            <li>S</li>
+            <li class="active">A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+            <li>E</li>
+        </ul>
+    </div>
+    <p class="h4 mt-4 ps-5 text-center">{{at}} Aを通過しました</p>
+    <p class=" h4 ps-5 text-center">Bに向かっています</p>
+    <p class="h4 ps-5 text-center">Bまでの到着予想時間:{{est_at}}(前回所要時間:{{est_m}}分{{est_s}}秒)</p>
+</div>
+
+
+
+{% elif loc==2 %}
+<div class="root">
+    <div class="layout">
+        <ul class="progressbar">
+            <li>S</li>
+            <li class="active">A</li>
+            <li class="active">B</li>
+            <li>C</li>
+            <li>D</li>
+            <li>E</li>
+        </ul>
+    </div>
+    <p class="h4 mt-4 ps-5 text-center">{{at}} Bを通過しました</p>
+    <p class="h4 ps-5 text-center">Cに向かっています</p>
+    <p class="h4 ps-5 text-center">Cまでの到着予想時間:{{est_at}}(前回所要時間:{{est_m}}分{{est_s}}秒)</p>
+</div>
+
+{% elif loc==3 %}
+<div class="root">
+    <div class="layout">
+        <ul class="progressbar">
+            <li>S</li>
+            <li class="active">A</li>
+            <li class="active">B</li>
+            <li class="active">C</li>
+            <li>D</li>
+            <li>E</li>
+        </ul>
+    </div>
+    <p class="h4 mt-4 ps-5 text-center">{{at}} Cを通過しました</p>
+    <p class="h4 ps-5 text-center">Dに向かっています</p>
+    <p class="h4 ps-5 text-center">Dまでの到着予想時間:{{est_at}}(前回所要時間:{{est_m}}分{{est_s}}秒)</p>
+</div>
+
+{% elif loc==4 %}
+<div class="root">
+    <div class="layout">
+        <ul class="progressbar">
+            <li>S</li>
+            <li class="active">A</li>
+            <li class="active">B</li>
+            <li class="active">C</li>
+            <li class="active">D</li>
+            <li>E</li>
+        </ul>
+    </div>
+    <p class="h4 mt-4 ps-5 text-center">{{at}} Dを通過しました</p>
+    <p class="h4 ps-5 text-center">Eに向かっています</p>
+    <p class="h4 ps-5 text-center">Eまでの到着予想時間:{{est_at}}(前回所要時間:{{est_m}}分{{est_s}}秒)</p>
+</div>
+
+{% elif loc==5 %}
+<div class="root">
+    <div class="layout">
+        <ul class="progressbar">
+            <li>S</li>
+            <li class="active">A</li>
+            <li class="active">B</li>
+            <li class="active">C</li>
+            <li class="active">D</li>
+            <li class="active">E</li>
+        </ul>
+    </div>
+    <p class="h4 mt-4 ps-5 text-center">{{at}} Eを通過しました</p>
+    <p class="h4 ps-5 text-center">送迎バスは園に戻っています</p>
+</div>
+
+{% endif %}
+
+
+
+
+{% endblock %}

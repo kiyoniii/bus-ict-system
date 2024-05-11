@@ -1,0 +1,52 @@
+{% extends "counting/base.html" %}
+{% block title %}ユーザ・バス一覧{% endblock %}
+{% block content %}
+<div class="container py-3">
+    <h2 class="h3 banner">ユーザ一覧</h2>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>ユーザ名</th>
+            <th>パスワード</th>
+            <th>状態</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.password}}</td>
+            <td>{% if user.is_on %}乗車中{% else %}降車済{% endif %}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2 class="h3 banner">バスの運行状況</h2>
+    {% if bus.operation_status %}
+    <p class="fs-5 text-muted text-center mt-3">運行状況:
+        <span class="text-primary h2">運行中</span>
+    </p>
+    {% if bus.location == 0 %}
+    <p class="h4 ps-5 text-center">{{at}} 園を出発しました</p>
+    <p class="h4 ps-5 text-center">Aに向かっています</p>
+    {% elif bus.location == 1 %}
+    <p class="h4 ps-5 text-center">{{at}} Aを通過しました</p>
+    <p class="h4 ps-5 text-center">Bに向かっています</p>
+    {% elif bus.location == 2 %}
+    <p class="h4 ps-5 text-center">{{at}} Bを通過しました</p>
+    <p class="h4 ps-5 text-center">Cに向かっています</p>
+    {% elif bus.location == 3 %}
+    <p class="h4 ps-5 text-center">{{at}} Cを通過しました</p>
+    <p class="h4 ps-5 text-center">Dに向かっています</p>
+    {% elif bus.location == 4 %}
+    <p class="h4 ps-5 text-center">{{at}} Dを通過しました</p>
+    <p class="h4 ps-5 text-center">Eに向かっています</p>
+    {% elif bus.location == 5 %}
+    <p class="h4 ps-5 text-center">{{at}} Eを通過しました</p>
+    <p class="h4 ps-5 text-center">園に戻っています</p>
+    {% endif %}
+    {% else %}
+    <p class="fs-5 text-muted text-center mt-3">運行状況:
+        <span class="text-danger display-6">停止中</span>
+    </p>
+    {% endif %}
+</div>
+{% endblock %}

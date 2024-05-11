@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{url_for('notice.static',filename='css/bootstrap.css')}}" />
+    <link rel="stylesheet" href="{{url_for('notice.static',filename='css/style.css')}}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <script src="{{url_for('notice.static',filename='css/bootstrap.bundle.min.js')}}"></script>
+    <!-- ナビゲーションバー 余白（padding）の指定、指定背景色は黄緑色にして、背景色が暗めに合うテンプレートを選択（テキストが白色になる）
+        バーを画面最上部に固定する.-->
+    <nav class="navbar navbar-expand p-md-2 navbar-dark fixed-top" style="background-color:rgb(93, 151, 92)">
+        <div class="container-fluid">
+            <!-- ロゴの部分.画像とテキストを上下中央に配置するためのクラスを指定 -->
+            <span class="navbar-brand d-flex align-items-center">
+                <img src="{{url_for('notice.static',filename='images/KDIX.jpg')}}" alt="Logo" width="40" height="40"
+                    class="d-inline-block align-top">
+                保育園
+            </span>
+            <!-- collapseはコンテンツを開閉するために用いる（ハンバーガーメニューなど）.メニュー項目をフレックスアイテムとして右から配置する -->
+            <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <!-- メニュー1つ分のコード -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">送迎状況</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">園のこと</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">お知らせ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">アクセス</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- navに被る部分の間隔を空ける -->
+    <div style="margin-top:80px;"></div>
+
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer fixed-bottom">©︎ 2023 KDIX KG</footer>
+
+
+
+</body>
+
+</html>

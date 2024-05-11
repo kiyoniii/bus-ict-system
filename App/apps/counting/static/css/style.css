@@ -1,0 +1,29 @@
+/* 小見出しスタイル */
+.banner {
+    padding: 0.2rem 0.6rem;
+    border-left: 3px solid black;
+}
+
+/* フッター用 */
+.footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+@media (min-width: 576px) {
+
+    .container-sm,
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .container-md,
+    .container-sm,
+    .container {
+        max-width: 720px;
+    }
+}

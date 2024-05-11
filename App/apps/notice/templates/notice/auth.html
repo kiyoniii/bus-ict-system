@@ -1,0 +1,44 @@
+{% extends "notice/base.html" %}
+{% block title %}ユーザ認証{% endblock %}
+{% block content %}
+
+{% macro val_error(field) %}
+{% for error in field.errors %}
+<span style="color:red;">{{error}}</span>
+{% endfor %}
+{% endmacro %}
+
+<div class="container px-md-5 py-3" style="max-width: 720px;">
+    <h1 class="h3 banner">ユーザー認証</h1>
+    <form action="{{url_for('notice.auth')}}" method="POST" novalidate="novalidate">
+        {{form.csrf_token}}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <li style="color:red;list-style:none;">{{message}}</li>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <div class="form-group mt-4">
+            <span>{{form.username.label(class="form-label")}}</span>
+            <span>{{form.username(class="form-control")}}</span>
+            {{val_error(form.username)}}
+        </div>
+        <div class="form-group mt-4">
+            <span>{{form.password.label(class="form-label")}}</span>
+            <span>{{form.password(class="form-control")}}</span>
+            {{val_error(form.password)}}
+        </div>
+
+        <div class="d-flex justify-content-center mt-4">
+            {{form.submit(class="btn btn-primary")}}
+        </div>
+        <div class="mt-5">
+            <a href="{{url_for('notice.delete_value')}}" class="btn btn-outline-dark">ゲストとして進む</a>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

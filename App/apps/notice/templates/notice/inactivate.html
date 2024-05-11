@@ -1,0 +1,20 @@
+{% extends "notice/base.html" %}
+{% block title %}送迎バス運行状況{% endblock %}
+{% block content %}
+
+<div class="px-3 fs-5">
+    <span class="text-muted">ユーザ名:
+        <span class="">{{username}}</span>
+    </span>
+</div>
+
+<div class="pt-3 text-center">
+    <h1>送迎バス</h1>
+    <p class="fs-5 text-muted">運行状況:
+        <span class="text-danger display-6">停止中</span>
+    </p>
+    <p class="h4 mt-4 text-center">送迎バスは、現在運行していません</p>
+
+</div>
+
+{% endblock %}
