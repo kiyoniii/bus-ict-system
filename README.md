@@ -106,8 +106,9 @@ flask run --host=0.0.0.0
 #### 認証機能
 - プライバシー保護の観点や変質者に悪用される可能性を考慮し、未認証のユーザーに対しては、位置情報を表示しない。
 - 園児の乗車状況をカードタッチにより的確に把握し、園児それぞれの乗車記録を反映させたwebページを表示させる。
-
-<img src="./img/diagram13.png" width="56%"><img src="./img/diagram14.png" width="60%">
+  
+<img src="./img/diagram15.png" width="50%"><img src="./img/diagram13.png" width="48%">
+<img src="./img/diagram14.png" width="43%">
 
 
 ### システム構成
