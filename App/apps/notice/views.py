@@ -53,8 +53,8 @@ def notify():
             return render_template("notice/unauth_activate.html")
         user = db.session.query(User).filter_by(username=username).first()
         # バスは送迎中だが降車済みの場合
-        # if user.is_on is False:
-        #     return render_template("notice/is_off.html", username=username)
+        if user.is_on is False:
+            return render_template("notice/is_off.html", username=username)
 
         # これ以降はバス送迎中+園児乗車中の場合を指す
         # 前回の所要時間を計算
